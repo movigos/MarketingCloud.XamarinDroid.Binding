@@ -6,6 +6,7 @@
 - com.salesforce.marketingcloud:marketingcloudsdk `v8.0.8`
 - com.salesforce.marketingcloud:sfmcsdk `v1.0.2`
 - org.altbeacon:android-beacon-library `v2.19.3`
+- androidx.constraintlayout:constraintlayout `v2.1.4`
 
 
 ##### _Requirement (Xamarin Android):_
