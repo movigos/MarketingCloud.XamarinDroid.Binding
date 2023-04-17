@@ -15,7 +15,9 @@
 
   <attr path="/api/package[@name='com.salesforce.marketingcloud.messages.proximity']/class[@name='ProximityMessageResponse']/method[@name='getRefreshCenter' and count(parameter)=0]" name="name">RefreshCenter</attr>
   <attr path="/api/package[@name='com.salesforce.marketingcloud.messages.proximity']/class[@name='ProximityMessageResponse']/method[@name='getRefreshRadius' and count(parameter)=0]" name="name">RefreshRadius</attr>
-
+  
+  <attr path="/api/package[@name='org.altbeacon.beacon.distance']/class[@name='ModelSpecificDistanceUpdater']/method[@name='doInBackground' and count(parameter)=1 and parameter[1][@type='java.lang.Object...']]" name="hidden"/>
+    
   <add-node path="/api/package[@name='com.salesforce.marketingcloud.sfmcsdk.components.http']">
       <class abstract="false" deprecated="not deprecated" extends="java.lang.Object" extends-generic-aware="java.lang.Object" jni-extends="Ljava/lang/Object;" final="true" name="Response.Creator" static="true" visibility="public" jni-signature="Lcom/salesforce/marketingcloud/sfmcsdk/components/http/Response$Creator;">
           <implements name="android.os.Parcelable.Creator" name-generic-aware="android.os.Parcelable.Creator&lt;com.salesforce.marketingcloud.sfmcsdk.components.http.Response&gt;" jni-type="Landroid/os/Parcelable$Creator&lt;Lcom/salesforce/marketingcloud/sfmcsdk/components/http/Response;&gt;;" />
@@ -30,6 +32,97 @@
           <!--changed return type-->
               <parameter name="size" type="int" jni-type="I" />
           </method>
+      </class>
+  </add-node>
+
+  <add-node path="/api/package[@name='org.altbeacon.beacon.service.scanner']">
+      <class abstract="false" deprecated="not deprecated" extends="java.lang.Object" extends-generic-aware="java.lang.Object" jni-extends="Ljava/lang/Object;" final="false" name="ScanFilterUtils" static="false" visibility="public" jni-signature="Lorg/altbeacon/beacon/service/scanner/ScanFilterUtils;">
+          <constructor deprecated="not deprecated" final="false" name="ScanFilterUtils" jni-signature="()V" bridge="false" static="false" type="org.altbeacon.beacon.service.scanner.ScanFilterUtils" synthetic="false" visibility="public" />
+          <!--changed return type-->
+          <method abstract="false" deprecated="not deprecated" final="false" name="createScanFilterDataForBeaconParser" jni-signature="(Lorg/altbeacon/beacon/BeaconParser;Ljava/util/List;)Ljava/util/List;" bridge="false" native="false" return="java.util.List&lt;org.altbeacon.beacon.service.scanner.ScanFilterUtils&gt;" jni-return="Ljava/util/List&lt;Lorg/altbeacon/beacon/service/scanner/ScanFilterUtils$ScanFilterData;&gt;;" static="false" synchronized="false" synthetic="false" visibility="public">
+              <parameter name="beaconParser" type="org.altbeacon.beacon.BeaconParser" jni-type="Lorg/altbeacon/beacon/BeaconParser;" />
+              <parameter name="identifiers" type="java.util.List&lt;org.altbeacon.beacon.Identifier&gt;" jni-type="Ljava/util/List&lt;Lorg/altbeacon/beacon/Identifier;&gt;;" />
+          </method>
+          <!--changed return type-->
+          <method abstract="false" deprecated="not deprecated" final="false" name="createScanFiltersForBeaconParsers" jni-signature="(Ljava/util/List;)Ljava/util/List;" bridge="false" native="false" return="java.util.List&lt;android.bluetooth.le.ScanFilter&gt;" jni-return="Ljava/util/List&lt;Landroid/bluetooth/le/ScanFilter;&gt;;" static="false" synchronized="false" synthetic="false" visibility="public">
+              <parameter name="beaconParsers" type="java.util.List&lt;org.altbeacon.beacon.BeaconParser&gt;" jni-type="Ljava/util/List&lt;Lorg/altbeacon/beacon/BeaconParser;&gt;;" />
+          </method>
+          <method abstract="false" deprecated="not deprecated" final="false" name="createScanFiltersForBeaconParsers" jni-signature="(Ljava/util/List;Ljava/util/List;)Ljava/util/List;" bridge="false" native="false" return="java.util.List&lt;android.bluetooth.le.ScanFilter&gt;" jni-return="Ljava/util/List&lt;Landroid/bluetooth/le/ScanFilter;&gt;;" static="false" synchronized="false" synthetic="false" visibility="public">
+              <parameter name="beaconParsers" type="java.util.List&lt;org.altbeacon.beacon.BeaconParser&gt;" jni-type="Ljava/util/List&lt;Lorg/altbeacon/beacon/BeaconParser;&gt;;" />
+              <parameter name="regions" type="java.util.List&lt;org.altbeacon.beacon.Region&gt;" jni-type="Ljava/util/List&lt;Lorg/altbeacon/beacon/Region;&gt;;" />
+          </method>
+          <method abstract="false" deprecated="not deprecated" final="false" name="createWildcardScanFilters" jni-signature="()Ljava/util/List;" bridge="false" native="false" return="java.util.List&lt;android.bluetooth.le.ScanFilter&gt;" jni-return="Ljava/util/List&lt;Landroid/bluetooth/le/ScanFilter;&gt;;" static="false" synchronized="false" synthetic="false" visibility="public" />
+          <field deprecated="not deprecated" final="true" name="TAG" jni-signature="Ljava/lang/String;" static="true" transient="false" type="java.lang.String" type-generic-aware="java.lang.String" value="&quot;ScanFilterUtils&quot;" visibility="public" volatile="false" />
+      </class>
+      <!--changed name-->
+      <class abstract="false" deprecated="not deprecated" extends="java.lang.Object" extends-generic-aware="java.lang.Object" jni-extends="Ljava/lang/Object;" final="false" name="ScanFilterUtils" static="false" visibility="" jni-signature="Lorg/altbeacon/beacon/service/scanner/ScanFilterUtils$ScanFilterData;">
+          <field deprecated="not deprecated" final="false" name="filter" jni-signature="[B" static="false" transient="false" type="byte[]" type-generic-aware="byte[]" visibility="public" volatile="false" />
+          <field deprecated="not deprecated" final="false" name="manufacturer" jni-signature="I" static="false" transient="false" type="int" type-generic-aware="int" visibility="public" volatile="false" />
+          <field deprecated="not deprecated" final="false" name="mask" jni-signature="[B" static="false" transient="false" type="byte[]" type-generic-aware="byte[]" visibility="public" volatile="false" />
+          <field deprecated="not deprecated" final="false" name="serviceUuid" jni-signature="Ljava/lang/Long;" static="false" transient="false" type="java.lang.Long" type-generic-aware="java.lang.Long" visibility="public" volatile="false" />
+          <field deprecated="not deprecated" final="false" name="serviceUuid128Bit" jni-signature="[B" static="false" transient="false" type="byte[]" type-generic-aware="byte[]" visibility="public" volatile="false" />
+      </class>
+      <!--changed name-->
+  </add-node>
+
+    <add-node path="/api/package[@name='org.altbeacon.beacon']">
+        <class abstract="false" deprecated="not deprecated" extends="java.lang.Object" extends-generic-aware="java.lang.Object" jni-extends="Ljava/lang/Object;" final="false" name="Identifier" static="false" visibility="public" jni-signature="Lorg/altbeacon/beacon/Identifier;">
+            <implements name="java.io.Serializable" name-generic-aware="java.io.Serializable" jni-type="Ljava/io/Serializable;" />
+            <implements name="java.lang.Comparable" name-generic-aware="java.lang.Comparable&lt;org.altbeacon.beacon.Identifier&gt;" jni-type="Ljava/lang/Comparable&lt;Lorg/altbeacon/beacon/Identifier;&gt;;" />
+            <constructor deprecated="not deprecated" final="false" name="Identifier" jni-signature="([B)V" bridge="false" static="false" type="org.altbeacon.beacon.Identifier" synthetic="false" visibility="protected">
+                <parameter name="value" type="byte[]" jni-type="[B" />
+            </constructor>
+            <constructor deprecated="deprecated" final="false" name="Identifier" jni-signature="(Lorg/altbeacon/beacon/Identifier;)V" bridge="false" static="false" type="org.altbeacon.beacon.Identifier" synthetic="false" visibility="public">
+                <parameter name="identifier" type="org.altbeacon.beacon.Identifier" jni-type="Lorg/altbeacon/beacon/Identifier;" />
+            </constructor>
+            <method abstract="false" deprecated="not deprecated" final="false" name="compareTo" jni-signature="(Ljava/lang/Object;)I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public">
+                <!--changed parameter type-->
+                <parameter name="that" type="Java.Lang.Object" jni-type="Ljava/lang/Object;" not-null="true" />
+                <!--changed parameter type-->
+            </method>
+            <method abstract="false" deprecated="not deprecated" final="false" name="fromBytes" jni-signature="([BIIZ)Lorg/altbeacon/beacon/Identifier;" bridge="false" native="false" return="org.altbeacon.beacon.Identifier" jni-return="Lorg/altbeacon/beacon/Identifier;" static="true" synchronized="false" synthetic="false" visibility="public">
+                <parameter name="bytes" type="byte[]" jni-type="[B" />
+                <parameter name="start" type="int" jni-type="I" />
+                <parameter name="end" type="int" jni-type="I" />
+                <parameter name="littleEndian" type="boolean" jni-type="Z" />
+            </method>
+            <method abstract="false" deprecated="not deprecated" final="false" name="fromInt" jni-signature="(I)Lorg/altbeacon/beacon/Identifier;" bridge="false" native="false" return="org.altbeacon.beacon.Identifier" jni-return="Lorg/altbeacon/beacon/Identifier;" static="true" synchronized="false" synthetic="false" visibility="public">
+                <parameter name="intValue" type="int" jni-type="I" />
+            </method>
+            <method abstract="false" deprecated="not deprecated" final="false" name="fromLong" jni-signature="(JI)Lorg/altbeacon/beacon/Identifier;" bridge="false" native="false" return="org.altbeacon.beacon.Identifier" jni-return="Lorg/altbeacon/beacon/Identifier;" static="true" synchronized="false" synthetic="false" visibility="public">
+                <parameter name="longValue" type="long" jni-type="J" />
+                <parameter name="desiredByteLength" type="int" jni-type="I" />
+            </method>
+            <method abstract="false" deprecated="not deprecated" final="false" name="fromUuid" jni-signature="(Ljava/util/UUID;)Lorg/altbeacon/beacon/Identifier;" bridge="false" native="false" return="org.altbeacon.beacon.Identifier" jni-return="Lorg/altbeacon/beacon/Identifier;" static="true" synchronized="false" synthetic="false" visibility="public">
+                <parameter name="uuid" type="java.util.UUID" jni-type="Ljava/util/UUID;" />
+            </method>
+            <method abstract="false" deprecated="not deprecated" final="false" name="getByteCount" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public" />
+            <method abstract="false" deprecated="not deprecated" final="false" name="parse" jni-signature="(Ljava/lang/String;)Lorg/altbeacon/beacon/Identifier;" bridge="false" native="false" return="org.altbeacon.beacon.Identifier" jni-return="Lorg/altbeacon/beacon/Identifier;" static="true" synchronized="false" synthetic="false" visibility="public">
+                <parameter name="stringValue" type="java.lang.String" jni-type="Ljava/lang/String;" />
+            </method>
+            <method abstract="false" deprecated="not deprecated" final="false" name="parse" jni-signature="(Ljava/lang/String;I)Lorg/altbeacon/beacon/Identifier;" bridge="false" native="false" return="org.altbeacon.beacon.Identifier" jni-return="Lorg/altbeacon/beacon/Identifier;" static="true" synchronized="false" synthetic="false" visibility="public">
+                <parameter name="stringValue" type="java.lang.String" jni-type="Ljava/lang/String;" />
+                <parameter name="desiredByteLength" type="int" jni-type="I" />
+            </method>
+            <method abstract="false" deprecated="not deprecated" final="false" name="toByteArray" jni-signature="()[B" bridge="false" native="false" return="byte[]" jni-return="[B" static="false" synchronized="false" synthetic="false" visibility="public" />
+            <method abstract="false" deprecated="not deprecated" final="false" name="toByteArrayOfSpecifiedEndianness" jni-signature="(Z)[B" bridge="false" native="false" return="byte[]" jni-return="[B" static="false" synchronized="false" synthetic="false" visibility="public">
+                <parameter name="bigEndian" type="boolean" jni-type="Z" />
+            </method>
+            <method abstract="false" deprecated="not deprecated" final="false" name="toHexString" jni-signature="()Ljava/lang/String;" bridge="false" native="false" return="java.lang.String" jni-return="Ljava/lang/String;" static="false" synchronized="false" synthetic="false" visibility="public" />
+            <method abstract="false" deprecated="not deprecated" final="false" name="toInt" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public" />
+            <method abstract="false" deprecated="not deprecated" final="false" name="toUuid" jni-signature="()Ljava/util/UUID;" bridge="false" native="false" return="java.util.UUID" jni-return="Ljava/util/UUID;" static="false" synchronized="false" synthetic="false" visibility="public" />
+            <method abstract="false" deprecated="deprecated" final="false" name="toUuidString" jni-signature="()Ljava/lang/String;" bridge="false" native="false" return="java.lang.String" jni-return="Ljava/lang/String;" static="false" synchronized="false" synthetic="false" visibility="public" />
+        </class>
+    </add-node>
+
+  <add-node path="/api/package[@name='org.altbeacon.beacon.distance']">
+      <class abstract="false" deprecated="not deprecated" extends="android.os.AsyncTask" extends-generic-aware="android.os.AsyncTask&lt;java.lang.Void, java.lang.Void, java.lang.Void&gt;" jni-extends="Landroid/os/AsyncTask;" final="false" name="ModelSpecificDistanceUpdater" static="false" visibility="public" jni-signature="Lorg/altbeacon/beacon/distance/ModelSpecificDistanceUpdater;">
+          <!--changed parameter and return type-->
+          <method abstract="false" deprecated="not deprecated" final="false" name="doInBackground" jni-signature="([Ljava/lang/Object;)Ljava/lang/Object;" bridge="false" native="false" return="java.lang.Object" jni-return="Ljava/lang/Object;" static="false" synchronized="false" synthetic="false" visibility="protected">
+              <parameter name="params" type="java.lang.Object..." jni-type="[Ljava/lang/Object;" />
+          </method>
+          <!--changed parameter and return type-->
+          <method abstract="false" deprecated="not deprecated" final="false" name="onPostExecute" jni-signature="()V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="protected" />
       </class>
   </add-node>
     
@@ -68,7 +161,7 @@
               <parameter name="p0" type="boolean" jni-type="Z" />
           </method>
           <method abstract="false" deprecated="not deprecated" final="true" name="center" jni-signature="()Lcom/salesforce/marketingcloud/location/LatLon;" bridge="false" native="false" return="com.salesforce.marketingcloud.location.LatLon" jni-return="Lcom/salesforce/marketingcloud/location/LatLon;" static="false" synchronized="false" synthetic="false" visibility="public" return-not-null="true" />
-          <method abstract="false" deprecated="not deprecated" final="false" name="compareTo" jni-signature="(Lcom/salesforce/marketingcloud/messages/Region;)I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public">
+          <method abstract="false" deprecated="not deprecated" final="false" name="compareTo" jni-signature="(Ljava/lang/Object;)I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public">
               <!--changed parameter type-->
               <parameter name="other" type="Java.Lang.Object" jni-type="Ljava/lang/Object;" not-null="true" />
               <!--changed parameter type-->
