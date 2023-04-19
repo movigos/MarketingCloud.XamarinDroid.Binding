@@ -1,6 +1,6 @@
-# Salesforce MarketingCloud Binding Project
+# Salesforce MarketingCloud MobilePush SDK Binding Project
 
-### This is a native Salesforce MarketingCloud Binding Project for Xamarin Android
+### This is a native Salesforce MarketingCloud MobilePush SDK Binding Project for Xamarin Android
 
 ##### _SDKs (AAR):_
 - com.salesforce.marketingcloud:marketingcloudsdk `v8.0.8`
