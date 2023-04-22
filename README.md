@@ -13,14 +13,14 @@
 - Android requires a minimum API `v21`
 - Xamarin.Firebase.Messaging `v123.1.1.1`
 - Xamarin.GooglePlayServices.Gcm `v117.0.0.8`
-- Xamarinn.AndroidX.ConstraintLayout `v2.1.4.3`
+- Xamarin.AndroidX.ConstraintLayout `v2.1.4.3`
 - File `google-service.json` set Build Action as GoogleServicesJson
 
 ##### _Example:_
 
 ```csharp
 
-// Nessessary namespaces
+// Necessary namespaces
 using Com.Salesforce.Marketingcloud;
 using Com.Salesforce.Marketingcloud.Sfmcsdk;
 using Com.Salesforce.Marketingcloud.Notifications;
