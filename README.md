@@ -20,7 +20,7 @@
 
 ```csharp
 
-// Nessessary namespaces
+// Necessary namespaces
 using Com.Salesforce.Marketingcloud;
 using Com.Salesforce.Marketingcloud.Sfmcsdk;
 using Com.Salesforce.Marketingcloud.Notifications;
